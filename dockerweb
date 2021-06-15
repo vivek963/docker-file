@@ -1,0 +1,13 @@
+FROM centos
+
+RUN yum -y install httpd unzip
+
+ADD  https://github.com/vivek963/samplevideostreaming/archive/master.zip  /var/www/html/code.zip
+
+RUN cd /var/www/html/ && unzip code.zip && mv /var/www/html/samplevideostreaming-master/* /var/www/html/
+
+CMD apachectl -DFOREGROUND
+
+
+
+
